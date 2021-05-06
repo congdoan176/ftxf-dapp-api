@@ -1,0 +1,119 @@
+.input-group .input-group-addon, .input-group-btn {
+	width: 100%;	
+}
+
+p {
+	margin: 0 0 7px;
+}
+
+.category-back-link {
+	font-size: 18px;
+}
+
+.category-back-link a {
+	color: #428bca !important;
+}
+
+.category-back-link .glyphicon {
+	font-size: 15px;
+}
+
+.panel-default>.panel-heading {
+	font-size: 18px;
+	font-weight: bold;
+	color: #428bca;
+	background-color: rgba(0, 0, 0, 0.02);
+}
+
+.panel.panel-default {
+	padding: 10px;
+}
+
+.pnale ul.nav li a {
+	color: black;
+}
+
+.panel>.nav>li>a:hover, .panel>.nav>li>a:focus {
+	color: #428bca;
+}
+
+.listing {
+	position: relative;
+	margin: 0 0 10px 0;
+	min-height: 145px;
+	padding: 5px;
+}
+
+.listing .label-primary.status-type {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	background-color: transparent;
+	border: 1px solid #ddd;
+	color: #888;
+	text-transform: uppercase;
+	font-weight: 400;
+	padding: 2px 5px;
+	font-size: 10px;
+}
+
+.title.inlinebidding {
+	font-size: 18px;
+	margin-top: 0;
+}
+
+.seller {
+	font-size: 16px;
+}
+
+small {
+	font-size: 90%;
+}
+
+.listing .cta {
+	position: absolute;
+	bottom: -5px;
+	right: 5px;
+}
+
+.cta .time {
+	text-align: right;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.listing .bids>.glyphicon {
+	color: #e3e3e3;
+}
+
+.bids {
+	font-size: 16px;
+}
+
+.bids .price {
+	color: green;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.bids .btn.btn-default {
+	font-weight: bold;
+}
+
+.bids .btn.btn-default span {
+	font-size: 13px;
+}
+
+.hidden {
+	display: none;
+}
+
+.timeCountDown {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.section-title {
+	display: flex;
+	justify-content: flex-end;
+}

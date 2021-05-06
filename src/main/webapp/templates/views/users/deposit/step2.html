@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{views/users/layout/dashbroad}">
+<head>
+<meta charset="UTF-8">
+<title>Step2</title>
+</head>
+<body>
+	<div layout:fragment="userContent">
+		<div class="row justify-content-center">
+			<div class="col-12 col-xl-7 col-lg-9 col-md-10">
+				<div class="kt-wizard-v3 mb-5">
+					<div class="kt-wizard-v3__nav">
+						<div class="kt-wizard-v3__nav-line"></div>
+						<div class="kt-wizard-v3__nav-items">
+							<div class="kt-wizard-v3__nav-item" data-ktwizard-state="done">
+								<span>1</span> <i class="las la-check"></i>
+							</div>
+							<div class="kt-wizard-v3__nav-item" data-ktwizard-state="done">
+								<span>2</span> <i class="las la-check"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card border-0 rounded-0 shadow-sm">
+
+					<div class="card-body p-3 rounded-0 border-0">
+						<h3
+							class="card-title f-19 mb-3 font-weight-700 border-bottom pb-3">
+							2. Choose a deposit method</h3>
+						<div class="card-text">
+							<div class="form-group row">
+								<div class="col-12">
+									<div class="border box-sel bg-light ">
+										<div class="select-coin bg-white ">
+											<div class="bank-box p-3">
+
+												<div class="form-group mini-col">
+													<div class="text-center">
+														<img width="200"
+															src="https://chart.googleapis.com/chart?chs=360x360&amp;cht=qr&amp;chl=TXxxkbDExD69kdxfSFdsiweBxJbjyBME7a&amp;choe=UTF-8">
+													</div>
+												</div>
+
+												<div class="form-group mini-col">
+													<div class="input-group mb-3">
+														<input type="text" class="form-control" readonly=""
+															value="TXxxkbDExD69kdxfSFdsiweBxJbjyBME7a"
+															aria-label="Recipient's username"
+															aria-describedby="basic-addon2">
+														<div class="input-group-append">
+															<button class="btn btn-light border ng-binding"
+																id="basic-addon2"
+																ng-click="copyAddress(selectedWallet.walletAddress)">
+																<i class="las la-copy mr-1"></i> Sao chép
+															</button>
+														</div>
+													</div>
+												</div>
+
+												<div class="alert alert-warning f-13 mb-0" role="alert">
+													<strong class="mb-2"><strong class="ng-binding">Chú
+															ý!</strong></strong> <span class="ng-binding">VNDT sẽ hiển thị trên
+														Ví của bạn sau từ 5-10p kể từ khi chúng tôi nhận được
+														khoản tiền gửi. Vui lòng kiên nhẫn và liên hệ với chúng
+														tôi để được hỗ trợ.</span>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="border-top pt-3">
+							<a href="nap-tien.html" class="btn btn-secondary"> <i
+								class="las la-arrow-left"></i> Quay lại
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

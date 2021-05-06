@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{views/users/layout/dashbroad}">
+<head>
+<meta charset="UTF-8">
+<title>Share | Editor</title>
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
+</head>
+<body>
+	<div layout:fragment="userContent">
+		<div class="row justify-content-center">
+			<div class="col-12 col-xl-7 col-lg-9 col-md-10">
+				<form th:action="@{/send/content}" modelAttribute="contentShare"
+					method="post">
+					<div class="row">
+						<div class="col-6">
+							<div class="form-group">
+								<div class="custom-control custom-checkbox fs-090 mb-3">
+									<input type="checkbox" class="custom-control-input"
+										id="customCheck" name="type" value="all"> <label class="custom-control-label"
+										for="customCheck">Share All</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-group">
+								<div class="custom-control custom-checkbox fs-090 mb-3">
+									<input type="checkbox" class="custom-control-input"
+										id="customCheckVip" name="type" value="vip"> <label
+										class="custom-control-label" for="customCheckVip">Share
+										VIP</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-group">
+								<label class="col-form-label pb-1 pt-0">Content<span
+									class="text-danger">*</span></label>
+								<textarea name="content" id="editor">
+        						</textarea>
+								<button type="submit"
+									class="btn btn-primary mt-3">Submit</button>
+							</div>
+						</div>
+					</div>
+				</form>
+
+				<script>
+					var edittor;
+					ClassicEditor
+				    .create( document.querySelector('#editor' ) )
+				    .then( newEditor => {
+				        editor = newEditor;
+				    } )
+				    .catch( error => {
+				        console.error( error );
+				    } );
+					function getContent(){
+						console.log('check content: ', editor.getData());
+					}
+				</script>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

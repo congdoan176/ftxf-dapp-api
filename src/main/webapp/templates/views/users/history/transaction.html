@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{views/users/profile}">
+<head>
+<meta charset="UTF-8">
+<title>history</title>
+</head>
+
+<body>
+	<div layout:fragment="history">
+		<table class="table min-width-800 f-14">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col" class="text-center">ID</th>
+					<th scope="col" class="text-center">Ngày tháng</th>
+					<th scope="col">Giao dịch</th>
+					<th scope="col" class="text-right">Số lượng</th>
+					<th scope="col" class="text-right">Trạng thái</th>
+					<th scope="col" class="text-center">Chi tiết</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td scope="row" class="text-center">128201</td>
+					<td class="text-center">10:30 20-11-2020</td>
+					<td>Rút tiền</td>
+					<td class="text-right text-warning">30,493,800 VNDT</td>
+					<td class="text-right"><span
+						class="badge badge-pill badge-success wf-85">Hoàn thành</span></td>
+					<th scope="col" class="text-center"><a href="#"
+						data-toggle="modal" data-target="#MdlViewDetail"><i
+							class="las la-file-alt"></i></a></th>
+				</tr>
+				<tr>
+					<td scope="row" class="text-center">128202</td>
+					<td class="text-center">10:30 20-11-2020</td>
+					<td>Nạp tiền</td>
+					<td class="text-right text-primary">23,700,000 VNDT</td>
+					<td class="text-right"><span
+						class="badge badge-pill badge-warning wf-85">Chờ xử lý</span></td>
+					<th scope="col" class="text-center"><a href="#"
+						data-toggle="modal" data-target="#MdlViewDetail"><i
+							class="las la-file-alt"></i></a></th>
+				</tr>
+				<tr>
+					<td scope="row" class="text-center">128203</td>
+					<td class="text-center">10:30 20-11-2020</td>
+					<td>Rút tiền</td>
+					<td class="text-right text-warning">33.780,000 VNDT</td>
+					<td class="text-right"><span
+						class="badge badge-pill badge-success wf-85">Hoàn thành</span></td>
+					<th scope="col" class="text-center"><a href="#"
+						data-toggle="modal" data-target="#MdlViewDetail"><i
+							class="las la-file-alt"></i></a></th>
+				</tr>
+
+				<tr>
+					<td scope="row" class="text-center">128201</td>
+					<td class="text-center">10:30 20-11-2020</td>
+					<td>Rút tiền</td>
+					<td class="text-right text-warning">30,493,800 VNDT</td>
+					<td class="text-right"><span
+						class="badge badge-pill badge-success wf-85">Hoàn thành</span></td>
+					<th scope="col" class="text-center"><a href="#"
+						data-toggle="modal" data-target="#MdlViewDetail"><i
+							class="las la-file-alt"></i></a></th>
+				</tr>
+				<tr>
+					<td scope="row" class="text-center">128202</td>
+					<td class="text-center">10:30 20-11-2020</td>
+					<td>Nạp tiền</td>
+					<td class="text-right text-primary">120,300,000 VNDT</td>
+					<td class="text-right"><span
+						class="badge badge-pill badge-warning wf-85">Chờ xử lý</span></td>
+					<th scope="col" class="text-center"><a href="#"
+						data-toggle="modal" data-target="#MdlViewDetail"><i
+							class="las la-file-alt"></i></a></th>
+				</tr>
+				<tr>
+					<td scope="row" class="text-center">128203</td>
+					<td class="text-center">10:30 20-11-2020</td>
+					<td>Rút tiền</td>
+					<td class="text-right text-warning">26,600,000 VNDT</td>
+					<td class="text-right"><span
+						class="badge badge-pill badge-success wf-85">Hoàn thành</span></td>
+					<th scope="col" class="text-center"><a href="#"
+						data-toggle="modal" data-target="#MdlViewDetail"><i
+							class="las la-file-alt"></i></a></th>
+				</tr>
+
+				<tr>
+					<td scope="row" class="text-center">128201</td>
+					<td class="text-center">10:30 20-11-2020</td>
+					<td>Rút tiền</td>
+					<td class="text-right text-warning">30,493,800 VNDT</td>
+					<td class="text-right"><span
+						class="badge badge-pill badge-success wf-85">Hoàn thành</span></td>
+					<th scope="col" class="text-center"><a href="#"
+						data-toggle="modal" data-target="#MdlViewDetail"><i
+							class="las la-file-alt"></i></a></th>
+				</tr>
+				<tr>
+					<td scope="row" class="text-center">128202</td>
+					<td class="text-center">10:30 20-11-2020</td>
+					<td>Nạp tiền</td>
+					<td class="text-right text-primary">17,900,000 VNDT</td>
+					<td class="text-right"><span
+						class="badge badge-pill badge-warning wf-85">Chờ xử lý</span></td>
+					<th scope="col" class="text-center"><a href="#"
+						data-toggle="modal" data-target="#MdlViewDetail"><i
+							class="las la-file-alt"></i></a></th>
+				</tr>
+				<tr>
+					<td scope="row" class="text-center">128203</td>
+					<td class="text-center">10:30 20-11-2020</td>
+					<td>Rút tiền</td>
+					<td class="text-right text-warning">56,900,000 VNDT</td>
+					<td class="text-right"><span
+						class="badge badge-pill badge-success wf-85">Hoàn thành</span></td>
+					<th scope="col" class="text-center"><a href="#"
+						data-toggle="modal" data-target="#MdlViewDetail"><i
+							class="las la-file-alt"></i></a></th>
+				</tr>
+
+			</tbody>
+		</table>
+		<div class="modal fade" id="MdlViewDetail" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Nạp VNDT</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body text-left">
+						<div class="view-box">
+							<p>
+								<span class="font-weight-bold">Mã giao dịch </span> <span
+									class="float-right"> 27283 </span>
+							</p>
+							<p>
+								<span class="font-weight-bold">Số tiền </span> <span
+									class="float-right font-weight-bold text-danger">
+									123,390,000 VNDT </span>
+							</p>
+							<p>
+								<span class="font-weight-bold">Trạng thái </span> <span
+									class="float-right"> <span
+									class="badge badge-pill badge-success">Hoàn thành</span>
+								</span>
+							</p>
+							<hr>
+							<p>
+								<span class="font-weight-bold">Địa chỉ ví </span> <span
+									class="float-right d-inline-block text-right mb-2"
+									style="word-wrap: break-word; max-width: calc(100% - 80px);">
+									0xc1a27d8a1e73de630dec7fc948c44a91ec80d816 </span>
+							</p>
+							<p>
+								<span class="font-weight-bold">TxID </span> <span
+									class="float-right d-inline-block text-right mb-2"
+									style="word-wrap: break-word; max-width: calc(100% - 80px);">
+									0xfb977d3f57cbfedc14cfb02245fec5807d06ad3b74933222e7a559040ff47015
+								</span>
+							</p>
+							<div class="clearfix"></div>
+							<p>
+								<span class="font-weight-bold">Ngày tháng </span> <span
+									class="float-right"> 2020-11-29 30:20:03 </span>
+							</p>
+							<p>
+								<span class="font-weight-bold">Nội dung </span> <span
+									class="float-right"> Nạp VNDT vào tài khoản </span>
+							</p>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">
+							<i class="las la-copy"></i> Sao chép TXID
+						</button>
+						<button type="button" class="btn btn-primary">
+							<i class="las la-check-circle"></i> Check Export
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div
+			class="d-flex align-items-center justify-content-center justify-content-xl-between page-custom mb-0">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center mb-0">
+					<li class="page-item disabled"><a class="page-link" href="#"
+						tabindex="-1" aria-disabled="true"> <i
+							class="las la-angle-double-left fs-100"></i>
+					</a></li>
+					<li class="page-item disabled"><a class="page-link" href="#"
+						tabindex="-1" aria-disabled="true"> <i
+							class="las la-angle-left fs-100"></i>
+					</a></li>
+					<li class="page-item active"><a class="page-link" href="#">1</a></li>
+					<li class="page-item num-paging"><a class="page-link" href="#">2</a></li>
+					<li class="page-item num-paging"><a class="page-link" href="#">3</a></li>
+					<li class="page-item num-paging"><a class="page-link" href="#">4</a></li>
+					<li class="page-item num-paging"><a class="page-link" href="#">5</a></li>
+					<li class="page-item num-paging"><a class="page-link" href="#">...</a></li>
+					<li class="page-item"><a class="page-link" href="#"> <i
+							class="las la-angle-right fs-100"></i>
+					</a></li>
+					<li class="page-item"><a class="page-link" href="#"> <i
+							class="las la-angle-double-right fs-100"></i>
+					</a></li>
+				</ul>
+			</nav>
+			<hr />
+			<div class="on-page f-13 d-none d-xl-block">
+				Đang ở trang <span class="font-weight-bold">1</span> của <span
+					class="font-weight-bold">21</span> trang <span class="ml-2 mr-2">|</span>
+				Có <span class="font-weight-bold">122</span> bản ghi
+			</div>
+		</div>
+	</div>
+</body>
+</html>

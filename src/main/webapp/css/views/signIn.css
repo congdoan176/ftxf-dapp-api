@@ -1,0 +1,111 @@
+main{
+	margin-top: 50px;
+	margin-bottom: 79px;
+}
+
+#Form_SignIn {
+	margin-top: 50px;
+}
+.col-sm-offset-2{
+	margin-left: 12.5%;
+}
+
+.panel-default>.panel-heading {
+	color: #55b1df;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: rgba(0,0,0,0.03);
+}
+
+.form-style{
+	position: relative;
+}
+
+.form-style input.form-control{
+	height: 44px;
+	border-radius: 10px;
+}
+
+.form-style .help-block {
+	font-size: 12px;
+	font-weight: 400;
+	color: #5f6368;
+	padding-left: 5px;
+}
+
+.form-style .formLabel {
+	position: absolute;
+	left: 14px;
+	top: 12px;
+	color: #bbb;
+	pointer-events: none;
+    transition: all 0.3s ease;
+    user-select:none;
+}
+
+.form-style .formLabel.formTop {
+	left: 8px;
+	top: -9px;
+	font-size: 11px;
+	color: #1a73e8;
+	background-color: #fff;
+	padding: 0 5px;
+}
+
+.form-password .help-block {
+	font-size: 12px;
+	font-weight: 400;
+	color: #5f6368;
+	padding-left: 5px;
+}
+
+.form-control:focus {
+	border-color: #1a73e8;
+	outline: none;
+	box-shadow: none;
+}
+
+.panel-footer{
+	background-color: rgba(0,0,0,0.03);
+	margin-bottom: 53px;
+}
+
+.footer-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer-container .register .btn {
+	font-size: 15px;
+	color: #55b1df;
+	background-color: transparent;
+	font-weight: bold;
+	outline: none;
+	border: none;
+}
+
+.footer-container .register:hover .btn {
+	background-color: rgba(0,0,0,0.07);
+}
+
+.footer-container .register:active .btn {
+	background-color: rgba(0,0,0,0.07);
+}
+
+.footer-container input.btn-success.btn {
+	background-color: #2889b9;
+	outline: none;
+	border: none;
+}
+
+.footer-container input.btn-success.btn:active {
+	background-color: #0677af;
+}
+
+.footer-container input.btn-success.btn:hover {
+	background-color: #0677af;
+}
+
+.footer-container input.btn-success.btn:focus {
+	background-color: #0677af;
+}

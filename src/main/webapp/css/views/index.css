@@ -1,0 +1,93 @@
+.panel-default>.panel-heading {
+	font-size: 18px;
+	font-weight: bold;
+	color: #428bca;
+	background-color: rgba(0, 0, 0, 0.02);
+}
+
+.panel ul.nav li a {
+	color: black;
+	text-transform: uppercase;
+}
+
+.panel>.nav>li>a:hover, .panel>.nav>li>a:focus {
+	color: #428bca;
+}
+
+.galleryUnit {
+	padding: 0 5px;
+}
+
+.panel.panel-default {
+	padding: 10px;
+}
+
+.galleryContainer .panel.panel-default {
+	margin-bottom: 10px;	
+}
+
+.galleryImage {
+	position: relative;
+	margin-bottom: 10px;
+	height: 200px;
+}
+
+.galleryImage a img {
+	max-height: 200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.img-responsive {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+.galleryTitle {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 16px;
+	line-height: 18px;
+	font-weight: normal;
+	margin: 0 0 10px;
+	padding: 0px;
+}
+
+.galleryData--title {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.galleryData--title .timeLabel {
+	text-transform: uppercase;
+	font-size: 13px;
+}
+
+.galleryData--values {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.awe-hidden {
+	display: none;
+}
+
+.galleryPrice {
+	color: #009933;
+}
+
+.galleryPrice .NumberPart {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.timeCountDown {
+	font-size: 16px;
+	font-weight: bold;
+}

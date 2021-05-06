@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/home}">
+<head>
+<meta charset="UTF-8">
+<title>Auth | confirm</title>
+<link rel="stylesheet" href="/css/views/index.css">
+</head>
+<body>
+	<div layout:fragment="content">
+		<div th:if="${user}" id="show" style="margin: 150px;">
+			<div class="row form-group container-fluid">
+				<div class="col-6" style="margin: auto;">
+					<div class="border box-sel bg-light ">
+						<div class="box-sel-title pl-3 pr-3 pt-1 pb-1 text-center">
+							<strong class="font-weight-bold ng-binding pt-2 pb-2 d-block">
+								CONFIRM REGISTER SUCCESS</strong>
+						</div>
+						<div class="select-bank bg-white rounded  p-3 text-center">
+							<p class="ng-binding">confirm register success</p>
+							<p class="font-weight-bold mb-0">
+								<a href="/signIn" class="ng-binding"> go to login  <i class="las la-arrow-right"></i>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:unless="${user}" id="show" style="margin: 150px;">
+			<div class="row form-group container-fluid">
+				<div class="col-6">
+					<div class="border box-sel bg-light ">
+						<div class="box-sel-title pl-3 pr-3 pt-1 pb-1 text-center">
+							<strong class="font-weight-bold ng-binding pt-2 pb-2 d-block">
+								CONFIRM REGISTER </strong>
+						</div>
+						<div class="select-bank bg-white rounded  p-3 text-center">
+							<p class="ng-binding">confirm register fail</p>
+							<p class="font-weight-bold mb-0">
+								<a href="/register" class="ng-binding"> try to register again  <i class="las la-arrow-right"></i>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{views/users/layout/dashbroad}">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+</head>
+<body>
+	<div layout:fragment="userContent">
+		<div class="col-12 col-md-12">
+			<div
+				class="card border-0 rounded-0 shadow-sm mb-0 bg-primary text-white">
+				<div class="card-body p-3 rounded-0 border-0">
+					<div class="row">
+						<div class="col-lg-6 col-lg-6" style="border-right: solid 1px;">
+							<span class="font-weight-light text-uppercase f-13 mr-2">Email
+								: share@gmail.com</span>
+						</div>
+						<div class="col-lg-6 col-lg-6">
+							<div class="user-blance">
+								<div class="d-flex align-items-center h-100">
+									<span class="mr-3"> <img src="images/icon-tron.png"
+										width="32" />
+									</span>
+									<div class="w-100">
+										<h3
+											class="f-17 mb-0 text-white mb-0 d-flex align-items-center">
+											<span class="font-weight-light text-uppercase f-13 mr-2">Available
+												balances (TRX):</span> 231,700,000
+										</h3>
+										<span class="d-block font-weight-light f-11"> Total
+											balance : <strong class="font-weight-800 mr-2">340,700,000</strong>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="card border-0 rounded-0 shadow-sm mg-b-20">
+				<div class="card-body p-3 rounded-0 border-0">
+					<div class="card-text">
+						<div class="form-group">
+							<label for="" class="font-weight-500">Address Wallet</label>
+							<div class="input-group mb-0">
+								<input type="text" class="form-control"
+									value="TPwSyT9NY6Tx7iLNXAghJhGZawC4d7F7nq" readonly="">
+								<div class="input-group-append">
+									<button class="btn btn-light border" id="basic-addon2">
+										<i class="las la-copy mr-1"></i> Copy
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="f-13 font-weight-light">
+						<a href="rut-tien.html" class="btn btn-warning"> <i
+							class="las la-sign-out-alt"></i> Withdraw
+						</a> <a href="nap-tien.html" class="btn btn-primary float-right">
+							<i class="las la-sign-in-alt"></i> Deposit
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-md-12">
+			<div class="card border-0 rounded-0 shadow-sm mg-b-20">
+				<div class="card-body p-3 rounded-0 border-0">
+					<div class="d-sm-flex align-items-center bd-highlight">
+						<h3 class="card-title f-19 mb-3 font-weight-700 bd-highlight">
+							History</h3>
+						<div class="ml-auto bd-highlight">
+							<div class="input-group mb-3 mb-sm-3">
+								<select>
+									<option>Choose history</option>
+									<option>History deposit withdraw</option>
+									<option>Notification Share</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div layout:fragment="historyContent"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

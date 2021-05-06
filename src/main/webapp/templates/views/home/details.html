@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/home}">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<link rel="stylesheet" href="/css/views/details.css">
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+<script>
+	function validateBidAmount(textbox) {
+		if (textbox.value === null || textbox.value === "") {
+			textbox.setCustomValidity("Vui lòng nhập giá");
+			return false;
+		}
+		else textbox.setCustomValidity("");
+		return true;
+	}
+	
+	$(document).ready(function ($) {
+		let auction_id = parseInt(document.getElementById("auction-id").innerHTML);
+		let token = getCookie('token');
+		$("#PlaceQuickBid").click(function(event) {
+			let BidAmount = $("#PlaceQuickBid .NumberPart").html();
+			fetch('http://52.77.244.234/bid', {
+			   	  method: 'POST',
+			   	  headers: {
+			   		 'Content-Type': 'application/json',
+			   		 'Authorization': token
+			      },
+			   	  body: JSON.stringify({
+			   		 'auction': auction_id,
+			   	  	 'bidPrice': BidAmount
+			   	  })
+		   	  })
+		   	  .then(res => res.text())
+		   	  .then(results => {
+		   		if (results === "200") {
+		   			$(".errorBidAmount").html("Đấu giá thành công");
+		   			$(".errorBidAmount").addClass("alert alert-success")
+		   			$(".errorBidAmount").removeClass("alert-danger")
+		   		}
+		   		else {
+		   			$(".errorBidAmount").html(results);
+		   			$(".errorBidAmount").addClass("alert alert-danger")
+		   			$(".errorBidAmount").removeClass("alert-success")
+		   		}
+		   	  })
+		      .catch(error => {
+		    	console.log(error)
+		      }); 
+		});
+		$("#SubmitBid").click(function(event) {
+			let BidAmount = document.getElementById("BidAmount");
+			if (validateBidAmount(BidAmount)) {
+			  event.preventDefault();
+			  if (!token) window.location.assign("/signIn");
+			  else {
+				  fetch('http://52.77.244.234/bid', {
+				   	  method: 'POST',
+				   	  headers: {
+				   		 'Content-Type': 'application/json',
+				   		 'Authorization': token
+				      },
+				   	  body: JSON.stringify({
+				   		 'auction': auction_id,
+				   	  	 'bidPrice': BidAmount.value
+				   	  })
+			   	  })
+			   	  .then(res => console.log(res))
+			   	 /*  .then(results => {
+			   		  console.log(results)
+			   		if (results === "200") {
+			   			$(".errorBidAmount").html("Đấu giá thành công");
+			   			$(".errorBidAmount").addClass("alert alert-success")
+			   			$(".errorBidAmount").removeClass("alert-danger")
+			   		}
+			   		else {
+			   			$(".errorBidAmount").html(results);
+			   			$(".errorBidAmount").addClass("alert alert-danger")
+			   			$(".errorBidAmount").removeClass("alert-success")
+			   		}
+			   	  })  */
+			      .catch(error => {
+			    	console.log(error)
+			      }); 
+				}
+			}
+		});
+	});
+</script>
+</head>
+
+<body>
+	<div layout:fragment="content">
+	  <div class="container">
+	    <div class="row product-briefing">
+	      <div class="col-xs-12 col-md-5">
+	        <div class="panel panel-default">
+	          <img id="previewimg" class="img-responsive full"
+	            src="https://www.rainworx.com/AWDemo31/Content/listingImages/20140307/1f3d6fea-999b-4663-8711-01b54e8e7403_fullsize.jpg"
+	            alt="Listing Image" /> 
+	          <div class="addthis_toolbox addthis_default_style">
+	            Chia sẻ:&nbsp; 
+	            <a class="addthis_button_facebook"></a>
+	            <a class="addthis_button_twitter"></a> 
+	            <a class="addthis_button_email"></a>
+	            <a class="addthis_button_compact"></a>
+	          </div>
+	          <script type="text/javascript"
+	            src="//s7.addthis.com/js/250/addthis_widget.js"></script>
+	        </div>
+	      </div>
+	      <div class="col-xs-12 col-md-7">
+		      <div class="col-xs-12 detail_title_wrapper">
+		        <h3 class="detail_title" th:text="${auction.getAssest().name}">
+		        </h3>
+		        <span class="detail_status-label"> 
+		          <span class="label label-info">Active</span>
+		        </span>
+		      </div>
+		      <div class="col-xs-12">
+		        <div class="ListingActionMessage"></div>
+		        <div class="BuyBox" th:each="auction : ${auction}">
+		          <form id="actionForm" method="get">
+		            <div id="auction-id" style="display: none;" th:text=${auction.id}></div>
+		            <div class="detail_submit-wrapper">
+		              <div class="detail_price">
+		                <strong>Giá hiện tại</strong>
+		                <span class="detail_price-current Bidding_Current_Price">
+		                  $ <span class="NumberPart" th:text="${auction.bidPrice} + 100"> </span>
+		                </span>
+		              </div>
+		              <div class="row">
+		                <div class="col-xs-12 col-sm-6">
+		                  <div class="row">
+		                    <div class="col-xs-12">
+		                      <div class="form-group">
+		                        <a id="PlaceQuickBid"
+		                          class="btn btn-danger btn-block"> 
+		                          Đấu giá nhanh $<span class="NumberPart" th:text="${auction.bidPrice} + 200"></span>
+		                        </a>
+		                      </div>
+		                    </div>
+		                  </div>
+		                  <div class="row">
+		                    <div class="col-xs-12 col-sm-7">
+		                      <div class="form-group">
+		                        <div class="input-group">
+		                          <span class="input-group-addon">$</span>
+		                          <input class="form-control" id="BidAmount" name="BidAmount"
+		                            oninvalid="validateBidAmount(this)" oninput="validateBidAmount(this)"
+		                            type="text" value="" />
+		                        </div>
+		                        <div class="detail_minbid">
+		                          Minimum Bid: 
+		                          <span class="Bidding_Listing_MinPrice"> $<span
+		                            class="NumberPart" th:text="${auction.bidPrice} + 200"></span>
+		                          </span>
+		                        </div>
+		                      </div>
+		                      <p class="errorBidAmount"></p>
+		                    </div>
+		                    <div class="col-xs-12 col-sm-5">
+		                      <div class="form-group">
+		                        <input id="SubmitBid" type="submit"
+		                          class="btn btn-success btn-block"
+		                          value="Gửi giá thầu" />
+		                      </div>
+		                    </div>
+		                  </div>
+		                  <div class="detail_show-time">
+		                    <strong> Thời gian còn lại: </strong> 
+		                    <span class="time-box time-box-light  lh-1 d-block" th:attr="data-action-time=${auction.endAt}">
+	                            <span class="time-info">
+	                                <span class="time-num">
+	                                </span>
+	                                <span class="time-name">
+	                                    Ngày
+	                                </span>
+	                            </span>
+	                            <span class="time-info">
+	                                <span class="time-num">
+	                                </span>
+	                                <span class="time-name">
+	                                    Giờ
+	                                </span>
+	                            </span>
+	                            <span class="time-info">
+	                                <span class="time-num">
+	                                </span>
+	                                <span class="time-name">
+	                                    Phút
+	                                </span>
+	                            </span>
+	                            <span class="time-info">
+	                                <span class="time-num">
+	                                </span>
+	                                <span class="time-name">
+	                                    Giây
+	                                </span>
+	                            </span>
+	                        </span>
+		                    </span>
+		                  </div>
+		                </div>
+		                <div class="col-xs-12 col-sm-6">
+			                <div class="col-xs-12 watching_wrapper">
+			                  <a href="" class="detail_action-link">
+			                    <span class="detail_action-link-count"> 0&nbsp;Watching</span> 
+			                    <span class="glyphicon glyphicon-plus"></span> 
+			                    Add to Watch List
+			                  </a>
+			                </div>
+			                <div class="col-xs-12">
+			                  <div class="detail_properties">
+			                    <a href="" class="detail_action-link bid-history"> 
+			                      <span class="detail_action-link-count"> 
+			                        High Bidder: <span class="HighBidder">BidderBill</span>
+			                      </span> 
+			                      <span class="pull-right"> Bid History 
+			                        <span class="glyphicon glyphicon-chevron-right"></span>
+			                      </span> 
+			                      <span class="AcceptedListingActionCount"
+			                        th:text="${#lists.size(auction.bids)}"></span>&nbsp;Bid(s)
+			                    </a>
+			                    <div class="fee"></div>
+			                  </div>
+			                </div>
+			            </div>
+		                <div class="col-xs-12">
+		                  <div class="detail_disclaimer-auction">
+		                    <div>AuctionWorx will bid incrementally for you up to your
+		                      maximum bid. Your maximum bid is kept a secret from other
+		                      users.</div>
+		                    <div>Your bid is a contract between you and the listing
+		                      creator. If you have the highest bid you will enter into a
+		                      legally binding purchase contract.</div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		          </form>
+		        </div>
+		        <div class="detail_seller-data">
+		          <div class="seller-data_container">
+		            <div class="seller-data_summary">
+		              <div class="detail_user-summary">
+		                <span class="bb"> 
+		                  <strong>admin</strong>
+		                </span> 
+		                South Burlington, VT US <br />
+		                <div class="detail_feedback-rating stars-off">
+		                  <div class="stars-on" style="width: 67px"></div>
+		                </div> &nbsp; 
+		                <a href="">5</a> <br />
+		                <a href="">
+		                  View Seller&#39;s Other Listings
+		                </a> <br /> 
+		                <a href="" class="icon-email"> 
+		                  <svg height="18" viewBox="0 0 24 24"
+		                    width="18" xmlns="http://www.w3.org/2000/svg">
+		                    <path
+		                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+		                    <path d="M0 0h24v24H0z" fill="none" />
+		                  </svg> Contact Seller
+		                </a>
+		              </div>
+		            </div>
+		            <div class="seller-data_payment">
+		              <div class="detail_payment-options">
+		                <strong> Payment Options </strong> <br /> 
+		                Seller Accepts PayPal<br />
+		                Seller Accepts Credit Cards<br />
+		              </div>
+		            </div>
+		          </div>
+		          <div class="row hidden">
+		            <div class="col-xs-12">
+		              <table class="table shipping-table">
+		                <thead>
+		                  <tr>
+		                    <th>Shipping Options</th>
+		                    <th></th>
+		                  </tr>
+		                </thead>
+		                <tbody>
+		                  <tr>
+		                    <td>Free Shipping</td>
+		                    <td>$0.00</td>
+		                  </tr>
+		                  <tr>
+		                    <td>FedEx</td>
+		                    <td>$10.00</td>
+		                  </tr>
+		                  <tr>
+		                    <td colspan="2" class="text-right">
+		                      <button type="button" class="btn btn-default btn-xs"
+		                        data-toggle="modal" data-target="#326751">
+		                        View All Shipping Options</button>
+		                    </td>
+		                  </tr>
+		                </tbody>
+		              </table>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+	      </div>
+	    </div>
+	    <div class="row detail_data">
+	      <div class="col-xs-12 col-md-6">
+	        <div class="panel panel-default detail_data-panel">
+	          <div class="panel-heading">
+	              Details
+	          </div>
+	          <div class="row">
+	            <div class="col-xs-12">
+	              <ul class="detail_custom-fields list-unstyled">
+	                <li>
+	                    <span class="detail_field-name">Square Footage</span>
+	                    <span class="detail_field-value">4600</span>
+	                </li>
+	                <li>
+	                    <span class="detail_field-name">Number of Bedrooms</span>
+	                    <span class="detail_field-value">7</span>
+	                </li>
+	                <li>
+	                  <span class="detail_field-name">Number of Bathrooms</span>
+	                  <span class="detail_field-value">3</span>
+	                </li>
+	              </ul>
+	              <hr />
+	            </div>
+	            <div class="col-xs-12">
+	              <ul class="detail_custom-fields list-unstyled">
+	                <li>
+	                  <span> 
+	                    <strong>
+	                        Item # 344993
+	                    </strong>
+	                  </span>
+	                </li>
+	                <li>
+	                  <strong>End Date</strong>
+	                  <span class="endingDTTM" data-initial-dttm="01/01/2021 20:03:17">Friday, January 1, 2021 8:03 PM ET</span>
+	                </li>
+	                <li>
+	                  <strong>Start Date</strong>
+	                  <span class="startingDTTM" data-initial-dttm="12/22/2020 20:03:17">Tuesday, December 22, 2020 8:03 PM ET</span>
+	                </li>
+	              </ul>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="col-xs-12 col-md-6">
+	        <div class="panel panel-default detail__description-panel">
+	          <div class="panel-heading">
+	            Description
+	          </div>
+	          <div class="row">
+	            <div class="col-xs-12 description">
+	              <p>8 10 Springfield Ct Rockport walk to village. Single family 
+	                home and a two family home with a total of 6 bedrooms and 4 
+	                baths on a large beautiful lot..The large and spacious two 
+	                family allows for flexible floor plans which would allow for 
+	                many different living arrangements. Bonus extra apartment in 
+	                walkout basement. Live in one and rent the other, or convert 
+	                the two family back to a spacious single. These homes are 
+	                situated on a 27,092 sq. ft. lot at the end of a quiet lane. 
+	                Must see to appreciate the value!</p>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</body>
+</html>

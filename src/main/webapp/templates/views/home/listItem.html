@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/home}">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<link rel="stylesheet" href="/css/views/listItem.css">
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-3 categories">
+					<div class="panel panel-default hidden-xs hidden-sm">
+						<div class="panel-heading">Hạng mục</div>
+						<ul class="nav nav-pills nav-stacked">
+							<li class="category-back-link">
+								<a th:href=@{/}> 
+									<span class="glyphicon glyphicon-chevron-left"></span> Trở lại
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-9">
+					<div class="well well-sm section-title">
+						<form action="/AWDemo31/Browse/C326675"
+							class="form-inline text-right" method="get">
+							<input id="ViewStyle" name="ViewStyle" type="hidden" value="list" /><input
+								id="StatusFilter" name="StatusFilter" type="hidden"
+								value="active_only" />
+							<div class="form-group">
+								<div class="btn-group">
+									<button id="ShowListView" type="button"
+										class="btn btn-sm btn-primary">
+										<span id="ToggleIcon" class="glyphicon glyphicon-list"></span>
+									</button>
+									<button id="ShowGridView" type="button"
+										class="btn btn-sm btn-default">
+										<span id="ToggleIcon" class="glyphicon glyphicon-th-large"></span>
+									</button>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="btn-group">
+									<button id="Status_IncludeActive"
+										class="btn btn-sm btn-primary">Đang hoạt động</button>
+									<button id="Status_IncludeCompleted"
+										class="btn btn-sm btn-default">Đã hoàn thành</button>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<label class="input-group-addon" for="ListingType">Bộ lọc</label> 
+									<select class="form-control input-sm" id="ListingType"
+										name="ListingType" placeholder="All">
+										<option value="">Tất cả</option>
+										<option value="Auction">Bán đấu Giá</option>
+										<option value="FixedPrice">Giá cố định</option>
+										<option value="Classified">Rao vặt</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<label class="input-group-addon" for="SortFilterOptions">Sắp
+										xếp theo</label> <select class="form-control input-sm"
+										id="SortFilterOptions" name="SortFilterOptions"><option
+											selected="selected" value="0">Sắp kêt thúc</option>
+										<option value="1">Mới nhất</option>
+										<option value="2">Giá thấp nhất</option>
+										<option value="3">Giá cao nhất</option>
+										<option value="4">Title, A to Z</option>
+										<option value="5">Title, Z to A</option>
+										<option value="6">Listing ID, 0 to 9</option>
+										<option value="7">Listing ID, 9 to 0</option>
+										<option value="8">Activity, Highest</option>
+										<option value="9">Activity, Lowest</option>
+									</select>
+								</div>
+							</div>
+							<input type="submit" id="submitDropDown" class="hidden" />
+						</form>
+					</div>
+					<!-- <section th:each="asset : ${assets}">
+						<div class="panel panel-default clearfix listing">
+							<span class="label label-primary status-type">Bán đấu giá</span>
+							<div class="row">
+								<div class="col-xs-4 col-sm-3 col-lg-2 img-container">
+									<a href="/AWDemo31/Listing/Details/326751/Auction-Demo-Listing-Reserve">
+										<img src="https://www.rainworx.com/AWDemo31/Content/listingImages/20120910/8cf388f1-fc91-4d35-8eb3-1b749bf90e15_thumbcrop.jpg"
+											alt="Listing Image" class="img-responsive" />
+									</a>
+								</div>
+								<div class="col-xs-8 col-sm-9 col-lg-10">
+									<h1 class="title inlinebidding">
+										<a th:href="@{/details/{id}(id = ${asset.id})}">
+											<strong th:text=${asset.name}>Auction Demo Listing + Reserve</strong>
+										</a>
+									</h1>
+									<span class="seller"> 
+										Người bán: <a href="">admin</a>
+									</span>
+								</div>
+							</div>
+							<div class="cta">
+								<p class="text-right">
+									<a class="btn btn-danger InlineQuickBid"> Đấu giá nhanh $<span
+										class="NumberPart">580.01</span>
+									</a>
+								</p>
+								<p class="time">
+									<span class="time-box time-box-light  lh-1 d-block" th:attr="data-action-time=${auction.endAt}">
+	                                    <span class="time-info">
+	                                        <span class="time-num">
+	                                        </span>
+	                                        <span class="time-name">
+	                                            Ngày
+	                                        </span>
+	                                    </span>
+	                                    <span class="time-info">
+	                                        <span class="time-num">
+	                                        </span>
+	                                        <span class="time-name">
+	                                            Giờ
+	                                        </span>
+	                                    </span>
+	                                    <span class="time-info">
+	                                        <span class="time-num">
+	                                        </span>
+	                                        <span class="time-name">
+	                                            Phút
+	                                        </span>
+	                                    </span>
+	                                    <span class="time-info">
+	                                        <span class="time-num">
+	                                        </span>
+	                                        <span class="time-name">
+	                                            Giây
+	                                        </span>
+	                                    </span>
+	                                </span>
+								</p>
+								<p class="bids">
+									<span class="hidden sold">Sold</span> &nbsp; <span
+										class="price">$<span class="NumberPart" th:text=${asset.currentPrice}></span></span>
+									&nbsp; <span class="hidden price ended">$<span
+										class="NumberPart">570.01</span></span>| &nbsp; <span
+										class="HideOnEnd" data-previous-value="4">4</span> <span
+										class="HideOnEnd">Giá thầu(s)</span> &nbsp; 
+									<a href=""
+										class="HideOnEnd btn btn-default"> View Details <span
+										class="glyphicon glyphicon-chevron-right"></span>
+									</a>
+								</p>
+							</div>
+						</div>
+					</section> -->
+					<div th:each="asset : ${assets}">
+						<p th:text="${asset.id}"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

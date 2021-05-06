@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Main Tag -->
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Share</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+	rel="stylesheet">
+
+<!-- Bootstrap CSS File -->
+<link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Libraries CSS Files -->
+<link href="/lib/slick/slick.css" rel="stylesheet">
+<link href="/lib/slick/slick-theme.css" rel="stylesheet">
+<link href="/lib/bootstrap-select/bootstrap-select.min.css"
+	rel="stylesheet">
+<link href="/lib/lineawesome/line-awesome.min.css" rel="stylesheet">
+<link href="/lib/owl-carousel/owl.carousel.css" rel="stylesheet" />
+<link href="/lib/owl-carousel/owl.theme.default.css" rel="stylesheet" />
+<link href="/lib/splide-slide/splide.min.css" rel="stylesheet" />
+<link href="/lib/splide-slide/splide-default.min.css" rel="stylesheet" />
+<link href="/lib/fancybox/jquery.fancybox.css" rel="stylesheet" />
+<link href="/lib/daterangepicker/daterangepicker.css" rel="stylesheet" />
+
+<!-- Main Stylesheet File -->
+<link href="/css/layout/home.css" rel="stylesheet">
+<link href="/css/layout/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+	<!-- Loadding -->
+	<div id="loading">
+		<div id="loading-center">
+			<div id="loading-center-absolute">
+				<div class="object" id="object_one"></div>
+				<div class="object" id="object_two"></div>
+				<div class="object" id="object_three"></div>
+				<div class="object" id="object_four"></div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Loadding -->
+	<!-- Header -->
+	<header id="header">
+		<!-- Header top -->
+		<div class="tp-header">
+			<div class="fw-box h-100">
+				<div class="container-fluid h-100">
+					<div class="row h-100 align-items-center">
+						<!-- Logo -->
+						<div class="col-8 col-xl-3 col-lg-3 col-md">
+							<div id="logo" class="pull-left">
+								<a href="index.html" class="scrollto"> <img
+									src="/images/big-share.png" alt="" />
+								</a>
+							</div>
+						</div>
+						<!-- Logo -->
+						<!-- Search -->
+						<div class="col-12 col-xl-5 col-lg-5 col-md-12 d-none d-lg-block">
+							<div class="search-box">
+								<div class="input-group bg-white">
+									<select
+										class="form-control select-default selectpickernone d-none d-xl-block">
+										<option value="0">All</option>
+										<option value="1">Share</option>
+										<option value="2">Buy VIP</option>
+
+									</select> <input class="form-control key-word" placeholder="Key word...">
+									<div class="input-group-append">
+										<a
+											class="btn btn-warning btn-block text-white font-weight-500 "
+											href="#"> <i class="las la-search"></i> <span>Search</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Search -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header top -->
+		<!-- Header bottom -->
+		<div class="bt-header">
+			<div class="fw-box h-100">
+				<div class="container-fluid h-100">
+					<!-- Menu bar-->
+					<div class="d-flex align-items-center bd-highlight  h-100">
+						<div class="bd-highlight h-100">
+							<!-- Main Menu-->
+							<nav id="nav-menu-container">
+								<ul class="nav-menu">
+									<li class="menu-active"><a href="index.html">HOME</a></li>
+									<li class="menu-active"><a href="index.html">VIP</a></li>
+								</ul>
+							</nav>
+							<!-- Main Menu-->
+
+						</div>
+						<div class="bd-highlight ml-auto h-100">
+
+							<!-- Sub Menu-->
+							<div
+								class="top-nav-box float-right f-13 font-weight-light  h-100">
+								<div class="d-flex align-items-center  h-100">
+
+									<!-- Quick Menu-->
+									<div class="d-inline-block mr-2 mr-sm-3">
+										<ul class="list-inline mb-0">
+											<li class="list-inline-item has-drop"><span
+												class="d-none d-sm-inline"> Currency: </span>
+												<div class="dropdown d-inline-block">
+													<a href="#"
+														class="dropdown-toggle font-weight-bold f-12 text-warning"
+														data-toggle="dropdown" aria-haspopup="true"
+														aria-expanded="false"> Tron (TRX) </a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#"> Dolar (USDT) </a>
+													</div>
+												</div></li>
+											<li class="list-inline-item">|</li>
+											<li class="list-inline-item has-drop"><span
+												class="d-none d-sm-inline"> Language: </span>
+												<div class="dropdown d-inline-block">
+													<a href="#"
+														class="dropdown-toggle font-weight-bold f-12 text-warning"
+														id="drd_lang" data-toggle="dropdown" aria-haspopup="true"
+														aria-expanded="false"> English (EN) </a>
+													<div class="dropdown-menu dropdown-menu-right"
+														aria-labelledby="drd_lang">
+														<a class="dropdown-item" href="#"> Vietnamies (VI) </a> <a
+															class="dropdown-item" href="#"> China (CN) </a>
+													</div>
+												</div></li>
+										</ul>
+									</div>
+									<ul th:if="${user == null}" class="nav navbar-nav user-menu">
+										<li class="dropdown"><a href="#" class="dropdown-toggle"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false"> <span class="mr-1"> Log in </span> <span class="avatar"> <img
+													src="http://auction.biso.vn/img/s13.jpg">
+											</span>
+										</a>
+											<ul class="dropdown-menu dropdown-menu-right">
+												<li><a href="/register"> <i class="las la-edit"></i>
+														Register
+												</a></li>
+												<li><a href="/signIn"> <i class="la la-lock"></i>
+														Sign in
+												</a></li>
+											</ul></li>
+									</ul>
+									<ul th:if="${user != null}" class="nav navbar-nav user-menu">
+										<li class="dropdown"><a href="#" class="dropdown-toggle"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false"> <span
+												class="mr-1 font-weight-bold" id="displayName"></span> <span
+												class="avatar"> <img src="/images/big-share.png">
+											</span>
+										</a>
+											<ul class="dropdown-menu dropdown-menu-right">
+												<li class="divider pt-1 mb-1"></li>
+												<li><a href="/me"> <i class="las la-cog"></i> INFO
+												</a></li>
+												<li><a href=""> <i class="la la-lock"></i> Change
+														Password
+												</a></li>
+												<li class="divider pt-1 mb-1"></li>
+												<li><a href="" id="logout"> <i class="las la-times-circle mr-1"></i>
+														Log Out
+												</a></li>
+											</ul></li>
+									</ul>
+									<!-- Account Menu-->
+
+								</div>
+							</div>
+							<!-- Sub Menu-->
+						</div>
+					</div>
+					<!-- Menu bar-->
+					<!-- Mobile search -->
+					<form action="" class="searchBox d-block d-lg-none">
+						<input type="search" id="txtKeyword" placeholder="Từ khóa...">
+						<label class="las la-search" for="txtKeyword"></label>
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+		<!-- Header bottom -->
+
+	</header>
+	<!-- Main -->
+	<main id="main" class="pt-5" layout:fragment="content"></main>
+	<!-- Main -->
+	<!-- Footer -->
+	<footer id="footer">
+		<!-- Footer Main  -->
+		<div class="footer_center">
+			<div class="container-fluid">
+				<div class="fw-box">
+					<div class="row">
+						<div class="col-12 col-xl-4 col-lg-5 col-md-12">
+							<div class="text-footer mb-4">
+								<div class="mb-3">
+									<a href="/" class="scrollto"> <img src="/images/logo.png"
+										height="32">
+									</a>
+								</div>
+								<div class="text">
+									<p>Phone: +84.368.66666</p>
+									<p>Email: share</p>
+									<p>Website: https://www.share.org</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-xl-8 col-lg-7 col-md-12 d-none">
+							<div class="row">
+								<div class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6">
+									<div class="link-footer mb-3">
+										<h5>Overview</h5>
+										<ul>
+											<li><a href="">Introduce</a></li>
+											<li><a href="">News</a></li>
+											<li><a href="">Support</a></li>
+											<li><a href="">Register</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6">
+									<div class="link-footer mb-3">
+										<h5>Category</h5>
+										<ul>
+											<li><a href="">Cryptocurrencies</a></li>
+											<li><a href="">DeFi</a></li>
+											<li><a href="">NTF</a></li>
+											<li><a href="">Polkadot</a></li>
+											<li><a href="">Bsc</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+
+									<div class="link-footer mb-3">
+										<h5>Need to know</h5>
+										<ul>
+											<li><a href="">Usage rules</a></li>
+											<li><a href="">Privacy Policy</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- Footer Main -->
+		<!-- Bottom -->
+		<div class="footer_bottom d-none">
+			<div class="container-fluid">
+				<div class="fw-box">
+					<div class="row">
+						<div class="col-12">
+							<span>Copyright © 2017 Share.com</span> <span class="float-right">Designed
+								By Ms.mary</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+	<!-- Footer -->
+
+	<a href="#" class="back-to-top"> <i class="las la-angle-up"></i>
+	</a>
+
+
+	<!-- JavaScript Libraries -->
+	<script src="/lib/jquery/jquery.min.js"></script>
+	<script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/lib/superfish/superfish.js"></script>
+	<script src="/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+	<script src="/lib/slick/slick.min.js"></script>
+	<script src="/lib/easing/easing.min.js"></script>
+	<script src="/lib/bootstrap-select/bootstrap-select.min.js"></script>
+	<script src="/lib/owl-carousel/owl.carousel.min.js"></script>
+	<script src="/lib/splide-slide/splide.min.js"></script>
+	<script src="/lib/daterangepicker/moment.min.js"></script>
+	<script src="/lib/daterangepicker/daterangepicker.min.js"></script>
+	<script src="/lib/fancybox/jquery.fancybox.min.js"></script>
+	<!-- Template Main Javascript File -->
+	<script src="/js/main.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function () {
+            var searchBox = document.querySelectorAll('.search-box input[type="text"] + span');
+            searchBox.forEach((elm) => {
+                elm.addEventListener('click', () => {
+                    elm.previousElementSibling.value = '';
+                });
+            });
+            
+        });
+        $(".check-coin").change(function() {
+			if ($(".check-coin").prop("checked")) {
+				console.log($('input[name="star"]:checked').serialize);
+				$(".select-bank").hide();
+				$(".select-coin").show();
+				$(".btn-wit").show();
+				
+			} else {
+				$(".select-coin").hide();
+				$(".select-bank").show();
+			}
+		});
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            navText: ['<i class="las la-arrow-left"></i>', '<i class="las la-arrow-right"></i>'],
+            nav: true,
+            dots: false,
+            
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                576: {
+                    items: 1,
+                    nav: true
+                },
+                768: {
+                    items: 2,
+                    nav: true
+                },
+                1120: {
+                    items: 4,
+                    nav: true
+                }
+            }
+        });
+        var username = getCookie("username");
+        var x = document.getElementById("displayName").textContent;
+        document.getElementById("displayName").innerHTML = username;
+    </script>
+</body>
+</html>

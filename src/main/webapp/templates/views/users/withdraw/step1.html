@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{views/users/layout/dashbroad}">
+<head>
+<meta charset="UTF-8">
+<title>withdraw | step 1</title>
+</head>
+<body>
+	<div layout:fragment="userContent">
+		<div class="row justify-content-center">
+			<div class="col-12 col-xl-7 col-lg-9 col-md-10">
+				<div class="kt-wizard-v3 mb-5">
+					<div class="kt-wizard-v3__nav">
+						<div class="kt-wizard-v3__nav-line"></div>
+						<div class="kt-wizard-v3__nav-items">
+							<div class="kt-wizard-v3__nav-item" data-ktwizard-state="done">
+								<span>1</span> <i class="las la-check"></i>
+							</div>
+							<div class="kt-wizard-v3__nav-item" data-ktwizard-state="done">
+								<span>2</span> <i class="las la-check"></i>
+							</div>
+							<div class="kt-wizard-v3__nav-item">
+								<span>2</span> <i class="las la-check"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card border-0 rounded-0 shadow-sm">
+
+					<div class="card-body p-3 rounded-0 border-0">
+						<h3
+							class="card-title f-19 mb-3 font-weight-700 border-bottom pb-3">
+							2. Withdraw</h3>
+						<div class="card-text">
+							<div class="row mb-3">
+								<div class="col-12">
+									<div class="border box-sel bg-light">
+										<div class="select-coin  bg-white">
+											<div class="bank-box p-3">
+
+												<div class="form-group mini-col">
+													<div class="row text-center">
+														<div class="col-12 mb-1 f-15 font-weight-bold ">
+															Số tiền được rút: <span class="text-primary">239,384
+																VNDT</span>
+														</div>
+														<div class="col-12 f-11 text-secondary">
+															<span class="ml-1 mr-1"> Tổng số tiền: <span
+																class="font-weight-bold">249,384 VNDT</span>
+															</span> <span class="ml-1 mr-1"> Số tiền chờ xử lý: <span
+																class="font-weight-bold text-warning">11,182 VNDT</span>
+															</span>
+														</div>
+													</div>
+												</div>
+
+												<div class="form-group mini-col">
+													<label for="" class="font-weight-500 d-block"> Số
+														lượng </label>
+													<div class="input-group mb-0">
+														<input type="text" class="form-control" value="0">
+														<div class="input-group-append">
+															<button class="btn btn-light border">VNDT</button>
+														</div>
+													</div>
+												</div>
+												<div class="form-group mini-col">
+													<label for="" class="font-weight-500">Địa chỉ ví</label>
+													<div class="input-group mb-3">
+														<input type="text" class="form-control">
+														<div class="input-group-append">
+															<button class="btn btn-light border">
+																<i class="las la-qrcode"></i>
+															</button>
+														</div>
+													</div>
+												</div>
+												<div class="form-group mini-col">
+													<label for="" class="font-weight-500 d-block"> Memo
+													</label> <input type="text" class="form-control"
+														placeholder="XML Memo">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input"
+															id="customCheck"> <label
+															class="custom-control-label f-13" for="customCheck">
+															Không sử dụng Memo </label>
+													</div>
+												</div>
+												<div class="form-group mini-col">
+													<label for="" class="font-weight-500">Phí mạng lưới</label>
+													<div class="input-group mb-3">
+														<select
+															class="form-control selectpickernone select-default"
+															disabled="" tabindex="-98">
+															<option value="1">Thấp nhất</option>
+															<option selected="2" value="Techcombank">Trung
+																bình</option>
+															<option value="3">Cao nhất</option>
+														</select>
+														<div class="input-group-append">
+															<span
+																class="input-group-text font-weight-bold f-13 bg-light"
+																id="basic-addon2"> <span class="text-danger">11.129933
+																	VNDT</span>
+															</span>
+														</div>
+													</div>
+												</div>
+												<div class="form-group mini-col">
+													<div class="text-center f-15 font-weight-bold">
+														Số lượng bạn nhận: <span
+															class="font-weight-bolder text-success">239,384
+															VNDT</span>
+													</div>
+												</div>
+												<hr>
+												<div class="alert alert-warning f-13 mb-0" role="alert">
+													<p class="mb-0">
+														<strong>Chú ý!</strong> Tiền gửi sẽ sử dụng được sau khi
+														đủ 2 xác nhận từ mạng lưới blockchain. Sau khi nạp tiền,
+														bạn có thể theo dõi chi tiết giao dịch tại trang lịch sử
+														giao dịch.
+													</p>
+												</div>
+
+											</div>
+										</div>
+
+
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="border-top pt-3">
+							<a href="rut-tien.html" class="btn btn-secondary text-white">
+								<i class="las la-arrow-left"></i> Quay lại
+							</a> <a href="rut-tien-buoc-3.html"
+								class="btn btn-primary float-right btn-wit  text-white" data-toggle="modal"
+								data-target="#MdlVerify"> <i class="las la-sign-out-alt"></i>
+								Rút tiền
+							</a>
+							<div class="modal fade" id="MdlVerify" tabindex="-1"
+								aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title f-15" id="exampleModalLabel">Xác
+												nhận rút VNDT</h5>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body text-left f-13">
+											<div class="view-box">
+												<p>
+													<span class="font-weight-500">Số lượng </span> <span
+														class="float-right font-weight-bold"> 123.84 VNDT </span>
+												</p>
+												<p>
+													<span class="font-weight-500">Địa chỉ ví nhận </span> <span
+														class="float-right d-inline-block text-right mb-2 font-weight-bold"
+														style="word-wrap: break-word; max-width: calc(100% - 80px);">
+														TPwSyT9NY6Tx7iLNXAghJhGZawC4d7F7nq </span>
+												</p>
+												<p>
+													<span class="font-weight-500">Phí mạng lưới</span> <span
+														class="float-right font-weight-bold text-danger">
+														11,283 VNDT </span>
+												</p>
+												<p>
+													<span class="font-weight-500">Số bạn nhận </span> <span
+														class="float-right font-weight-bold text-primary">
+														122.84 VNDT </span>
+												</p>
+												<!--Option-->
+												<p>
+													<span class="font-weight-500">Thời gian còn lại </span> <span
+														class="float-right font-weight-bold text-warning">
+														56s </span>
+												</p>
+												<!--Option-->
+												<div class="form-group mb-0">
+													<div class="d-flex align-items-center">
+														<label for="" class="font-weight-500">Mã xác thực</label>
+														<div class="ml-auto">
+															<input type="text" class="form-control form-control-sm"
+																width="100">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<a class="btn btn-secondary text-white" data-dismiss="modal">
+												<i class="las la-ban"></i> Hủy bỏ
+											</a> <a href="rut-tien-buoc-3.html"
+												class="btn btn-primary text-white"> <i
+												class="las la-check-circle"></i> Xác nhận
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

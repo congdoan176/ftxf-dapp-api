@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{views/users/layout/dashbroad}">
+<head>
+<meta charset="UTF-8">
+<title>Step1</title>
+</head>
+<body>
+	<div layout:fragment="userContent">
+		<div class="row justify-content-center">
+			<div class="col-12 col-xl-7 col-lg-9 col-md-10">
+				<div class="kt-wizard-v3 mb-5">
+					<div class="kt-wizard-v3__nav">
+						<div class="kt-wizard-v3__nav-line"></div>
+						<div class="kt-wizard-v3__nav-items">
+							<div id="ctl11_DivChecking" class="kt-wizard-v3__nav-item"
+								data-ktwizard-state="done">
+								<span>1</span> <i class="las la-check"></i>
+							</div>
+							<div id="ctl11_DivPending" class="kt-wizard-v3__nav-item">
+								<span>2</span> <i class="las la-check"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card border-0 rounded-0 shadow-sm">
+
+					<div class="card-body p-3 rounded-0 border-0">
+						<h3
+							class="card-title f-19 mb-3 font-weight-700 border-bottom pb-3">
+							1. Chọn loại tiền cần nạp</h3>
+						<div class="card-text">
+							<div class="form-group">
+								<input value="Rdb3Star" name="star" type="radio" id="VNDT"
+									class="checkbox-tools" checked=""> <label
+									class="for-checkbox-tools pr-3 lh-1" for="VNDT"> <strong
+									class="d-flex align-items-center pr-4 font-weight-500 fs-095">
+										<span class="fs-220 lh-1 mr-2"> <i
+											class="cc VNDT d-inline-block lh-1" title="VNDT"></i>
+									</span> <span> VNCoin (VNDT) </span>
+								</strong>
+								</label>
+							</div>
+							<div class="form-group">
+								<input value="Rdb3Star" name="star" type="radio" id="USDF"
+									class="checkbox-tools"> <label
+									class="for-checkbox-tools pr-3 lh-1" for="USDF"> <strong
+									class="d-flex align-items-center pr-4 font-weight-500 fs-095">
+										<span class="fs-220 lh-1 mr-2"> <i
+											class="cc USDF d-inline-block lh-1" title="USDF"></i>
+									</span> <span> USD Forex (USDF) </span>
+								</strong>
+								</label>
+							</div>
+						</div>
+						<div class="border-top pt-3">
+							<a th:href="@{/step2}"
+								class="btn btn-primary float-right"> Tiếp tục <i
+								class="las la-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

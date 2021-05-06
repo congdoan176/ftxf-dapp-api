@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{views/users/layout/dashbroad}">
+<head>
+<meta charset="UTF-8">
+<title>withdraw | step 1</title>
+</head>
+<body>
+	<div layout:fragment="userContent">
+		<div class="row justify-content-center">
+			<div class="col-12 col-xl-7 col-lg-9 col-md-10">
+				<div class="kt-wizard-v3 mb-5">
+					<div class="kt-wizard-v3__nav">
+						<div class="kt-wizard-v3__nav-line"></div>
+						<div class="kt-wizard-v3__nav-items">
+							<div class="kt-wizard-v3__nav-item" data-ktwizard-state="done">
+								<span>1</span> <i class="las la-check"></i>
+							</div>
+							<div class="kt-wizard-v3__nav-item" data-ktwizard-state="done">
+								<span>2</span> <i class="las la-check"></i>
+							</div>
+							<div class="kt-wizard-v3__nav-item" data-ktwizard-state="done">
+								<span>2</span> <i class="las la-check"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card border-0 rounded-0 shadow-sm">
+
+					<div class="card-body p-3 rounded-0 border-0">
+						<h3
+							class="card-title f-19 mb-3 font-weight-700 border-bottom pb-3">
+							3. Hoàn thành</h3>
+						<div class="card-text">
+							<div class="text-center">
+								<div class="mb-3 f-17">
+									<span class="font-weight-bold">Bạn đã đặt lện rút tiền
+										thành công!</span>
+								</div>
+								<div class="f-15">
+									<div class="mb-3 fs-090">
+										Số tiền rút: <span class="font-weight-bold text-primary">234,859
+											VNDT</span>
+									</div>
+									<div class="mb-3 fs-090">
+										Trạng thái rút: <span
+											class="badge badge-pill badge-warning wf-85">Chờ xử lý</span>
+									</div>
+									<div class="fs-090">
+										<p class="mb-1">
+											Phương thức rút: <span class="font-weight-bold">Rút về
+												ví tiền điện tử</span>
+										</p>
+										<p class="mb-1">
+											Địa chỉ ví: <span class="font-weight-bold">TPwSyT9NY6Tx7iLNXAghJhGZawC4d7F7nq</span>
+										</p>
+									</div>
+									<div class="f-13 mb-0 text-center mt-3 text-center">
+										<a href="vi-va-so-du.html"> Xem lịch sử rút nạp <i
+											class="las la-arrow-right"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

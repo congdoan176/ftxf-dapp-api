@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/home}">
+<head>
+<meta charset="UTF-8">
+<title>Share | Register</title>
+<script src="/lib/jquery/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/views/register.css" />
+<script>
+	function validateUserName(textbox) {
+		if (textbox.value === null || textbox.value === "") {
+			textbox.setCustomValidity("Please enter your account name");
+			return false;
+		}
+		else if (!isNaN(UserName)) {
+			textbox.setCustomValidity("The account name cannot be a number");
+			return false;
+		}
+		else if (textbox.value.length < 6) {
+			textbox.setCustomValidity("Account name must contain at least 6 characters");
+			return false;
+		}
+		else textbox.setCustomValidity("");
+		return true;
+	}
+	function validatePassword(textbox) {
+		if (textbox.value === null || textbox.value === "") {
+			textbox.setCustomValidity("Please enter a password");
+			return false;
+		}
+		else if (textbox.value.length < 6) {
+			textbox.setCustomValidity("Password must contain at least 6 characters");
+			return false;
+		}
+		else textbox.setCustomValidity("");
+		return true;
+	}
+	function validateConfirmPassword(textbox) {
+		password = document.getElementById("Password").value;
+		if (textbox.value === null || textbox.value === "") {
+			textbox.setCustomValidity("Please re-enter your password");
+			return false;
+		}
+		else if (textbox.value !== password) {
+			textbox.setCustomValidity("Import passwords do not match");
+			return false;
+		}
+		else textbox.setCustomValidity("");
+		return true;
+	}
+	function validateEmail(textbox) {
+		if (textbox.value === null || textbox.value === "") {
+			textbox.setCustomValidity("Please enter Email");
+			return false;
+		}
+		else if (textbox.validity.typeMismatch) {
+			textbox.setCustomValidity("Please enter the true format");
+			return false;
+		}
+		else textbox.setCustomValidity("");
+		return true;
+	}
+	function validateConfirmEmail(textbox) {
+		let email = document.getElementById("Email").value;
+		if ( textbox.value === null || textbox.value === "") {
+			textbox.setCustomValidity("Please re-enter Email");
+			return false;
+		}
+		else if (textbox.value !== email) {
+			textbox.setCustomValidity("Email entered did not match");
+			return false;
+		}
+		else textbox.setCustomValidity("");
+		return true;
+	}
+	
+	function getCookie(cname) {
+	  let name = cname + "=";
+	  let ca = document.cookie.split(';');
+	  for(var i = 0; i < ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return "";
+	}
+	
+	function checkCookie() {
+	  let user = getCookie("token");
+	  if (user != "") {
+	    return true;
+	  } 
+	  else {
+	    return false;
+	  }
+	}
+	if (checkCookie()) {
+		window.location.assign("/");
+	}
+	$(document).ready(function() {
+		$("#CompleteRegistrationButton").click(function(event){
+			let username = document.getElementById("UserName");
+			let password = document.getElementById("Password");
+			let confirmPassword = document.getElementById("confirmPassword");
+			let email = document.getElementById("Email");
+			if (validateUserName(username) && validatePassword(password) && validateConfirmPassword(confirmPassword) && 
+				validateEmail(email)) {
+				  event.preventDefault();
+				  fetch('/user/register', {
+			   	  method: 'POST',
+			   	  headers: {
+			   		 'Content-Type': 'application/json'
+			      },
+			   	  body: JSON.stringify({
+			   	  	 'email': email.value,
+			   	  	 'name': username.value,
+			   	  	 'password': password.value
+			   	  })
+			   	})
+			   	.then(res => {
+			   		return res.text();
+			   	})
+			    .then(results => {
+				    if (results === "OK") {
+				    	window.location.assign("/signIn");
+			   		}
+			   		else {
+			   			$(".errorEmail").html(results);
+		   			}
+			    })
+			    .catch(error => {
+			    	console.log(error);
+			    }); 
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div layout:fragment="content">
+		<section id="signup" class="mb-5" style="margin-top: 115px;">
+			<div class="fw-box">
+				<div class="container-fluid">
+					<div class="row justify-content-center">
+						<div class="col-12 col-xl-6 col-lg-8 col-md-12">
+							<div class="card o-hidden border-0 shadow-sm">
+								<div class="card-body p-0">
+									<div class="row">
+										<div class="col-12">
+											<div class="p-3 p-md-4">
+												<form class="user mini-col">
+													<div class="d-flex bd-highlight">
+														<h1 class="font-weight-600 f-19 bd-highlight mb-1">Sign
+															up</h1>
+														<div class="bd-highlight ml-auto f-13">
+															<a class="fs-090" href="dang-nhap.html">Already have
+																an account?</a>
+														</div>
+													</div>
+													<!-- <hr class="pb-2" /> -->
+													<!-- <div class="row">
+														<div class="col-12 col-md-6">
+															<div class="form-group">
+																<button class="btn btn-light btn-block btn-facebook">
+																	<i class="lab la-facebook-f"></i> Đăng nhập bằng
+																	Facebook
+																</button>
+															</div>
+														</div>
+														<div class="col-12 col-md-6">
+															<div class="form-group">
+																<button class="btn btn-light btn-block btn-google">
+																	<i class="lab la-google-plus-g"></i> Đăng nhập bằng
+																	Google
+																</button>
+															</div>
+														</div>
+													</div> -->
+													<hr class="mt-2" />
+													<div class="row">
+														<div class="col-12 col-md-6">
+															<div class="form-group">
+																<label class="col-form-label pb-1 pt-0">User
+																	name<span class="text-danger">*</span>
+																</label> <input type="text" id="UserName" name="UserName"
+																	oninvalid="validateUserName(this)"
+																	oninput="validateUserName(this)"
+																	class="form-control form-control-user fs-090"
+																	maxlength="20" required="required">
+															</div>
+														</div>
+														<div class="col-12 col-md-6">
+															<div class="form-group">
+																<label class=" col-form-label pb-1 pt-0">Email<span
+																	class="text-danger">*</span>
+																</label> <input type="email" id="Email" name="Email"
+																	oninvalid="validateEmail(this)"
+																	oninput="validateEmail(this)"
+																	class="form-control form-control-user fs-090" required="required">
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-12 col-md-6">
+															<div class="form-group">
+																<label class="col-form-label pb-1 pt-0">Password<span
+																	class="text-danger">*</span></label> <input type="password"
+																	id="Password" name="Password"
+																	oninvalid="validatePassword(this)"
+																	oninput="validatePassword(this)"
+																	class="form-control form-control-user fs-090" required="required">
+															</div>
+														</div>
+														<div class="col-12 col-md-6">
+															<div class="form-group">
+																<label class="col-form-label pb-1 pt-0">Retype
+																	Password<span class="text-danger">*</span>
+																</label> <input type="password" id="confirmPassword"
+																	name="confirmPassword"
+																	oninvalid="validateConfirmPassword(this)"
+																	oninput="validateConfirmPassword(this)"
+																	class="form-control form-control-user fs-090" required="required">
+															</div>
+														</div>
+													</div>
+													<hr class="mt-2" />
+													<div class="row justify-content-center">
+														<div class="col-12 col-md-6">
+															<div class="form-group">
+																<div class="custom-control custom-checkbox fs-090 mb-3">
+																	<input type="checkbox" class="custom-control-input"
+																		id="customCheck"> <label
+																		class="custom-control-label" for="customCheck">
+																		I agree <a href="#">I agree to the terms &amp;
+																			regulations</a>
+																	</label>
+																</div>
+															</div>
+															<button type="submit" id="CompleteRegistrationButton"
+																class="btn btn-primary btn-user d-block fs-100 font-weight-500">
+																<i class="las la-user-alt"></i> Register
+															</button>
+														</div>
+													</div>
+												</form>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
